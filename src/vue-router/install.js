@@ -7,12 +7,10 @@ export default function install(Vue) {
       if(this.$options.router) {
         this._routerRoot = this // 根实例
         this._router = this.$options.router
-        console.log(this._router);
         this._router.init(this) // 初始化
       }else {
         this._routerRoot = this.$parent && this.$parent._routerRoot
       }
-      console.log(this);
     },
   })
 

@@ -5,6 +5,7 @@ export default function createRouteMap(routes,oldPathList,oldPathMap) {
 
 
   routes.forEach(route => {
+    // 添加路由记录
     addRouteRecord(route,pathList,pathMap)
   })
   return {pathList,pathMap}
