@@ -1,6 +1,6 @@
 import Vue from 'vue'
-// import VueRouter from 'vue-router'
-import VueRouter from '@/vue-router'
+import VueRouter from 'vue-router'
+// import VueRouter from '@/vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 
@@ -19,27 +19,15 @@ const routes = [
     children: [
       {
         path: 'a',
-        component: {
-          render(h) {
-            return <h1>about A</h1>
-          }
-        }
+        component: () => import('@/views/components/A.vue')
       },
       {
         path: 'b',
-        component: {
-          render(h) {
-            return <h1>about B</h1>
-          }
-        },
+        component: () => import('@/views/components/B.vue'),
         children: [
           {
             path: '/c',
-            component: {
-              render(h) {
-                return <h1>about C</h1>
-              }
-            }
+            component: () => import('@/views/components/C.vue')
           }
         ]
       }

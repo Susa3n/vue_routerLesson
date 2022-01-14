@@ -29,10 +29,22 @@ export default class VueRouter {
     } 
     // history.getCurrentLocation() 获取当前hash模式下的路径，history.transitionTo()过渡导当前组件
     history.transitionTo(history.getCurrentLocation(),setupHashLister)  // 后续需要监听路径的变化
+
+    history.listen((route) => {
+      app._route = route
+    })
   }
 
   match(location) {
     return this.matcher.match(location)
+  }
+
+  push() {
+
+  }
+
+  replace() {
+
   }
 }
 VueRouter.install = install
