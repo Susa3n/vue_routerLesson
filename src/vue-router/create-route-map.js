@@ -14,7 +14,7 @@ export default function createRouteMap(routes,oldPathList,oldPathMap) {
 function addRouteRecord(route,pathList,pathMap,parentRoute) {
   let path = parentRoute ? `${parentRoute.path}/${route.path}` : route.path
   let record = {
-    path: path,
+    path,
     component: route.component,
     parentRoute
   }
@@ -22,6 +22,7 @@ function addRouteRecord(route,pathList,pathMap,parentRoute) {
     pathMap[path] = record
     pathList.push(path)
   }
+  
   if(route.children) {
     route.children.forEach(childRoute => {
       if(childRoute.path.indexOf('/') == 0){
