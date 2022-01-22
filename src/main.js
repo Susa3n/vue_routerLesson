@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Menu1 from "@/views/components/Menu";
-import SubMenu1 from "@/views/components/SubMenu";
-import MenuItem1 from "@/views/components/MenuItem";
+import Menu from "@/views/components/Menu";
+import SubMenu from "@/views/components/SubMenu";
+import MenuItem from "@/views/components/MenuItem";
 
 
 Vue.config.productionTip = false
 Vue.prototype.$bus = new Vue()
 
-Vue.component('Menu1',Menu1)
-Vue.component('SubMenu1',SubMenu1)
-Vue.component('MenuItem1',MenuItem1)
+Vue.component('Menu',Menu)
+Vue.component('SubMenu',SubMenu)
+Vue.component('MenuItem',MenuItem)
 
 
 new Vue({

@@ -1,22 +1,13 @@
 <template>
-  <Menu1>
-    <!-- <template v-for="(menu, index) in data">
-      <SubMenu1 v-if="menu.children" :key="menu.id">
-        <template slot="title">
-          {{ menu.name }}
-        </template>
-      </SubMenu1>
-      <MenuItem1 v-else :key="menu.id">{{ menu.name }}</MenuItem1>
-    </template> -->
-      <Sub :data="data"></Sub>
-
-
-
-
-  </Menu1>
+  <Menu>
+    <template v-for="(menu, index) in data">
+      <Resub v-if="menu.children" :key="menu.id" :data="menu"></Resub>
+      <MenuItem v-else :key="menu.id">{{ menu.name }}</MenuItem>
+    </template>
+  </Menu>
 </template>
 <script>
-import Sub from './Sub.vue'
+import Resub from './Resub.vue'
 export default {
   name: "WMenu",
   props: {
@@ -29,7 +20,7 @@ export default {
     return {};
   },
   components: {
-    Sub
+    Resub
   },
 };
 </script>

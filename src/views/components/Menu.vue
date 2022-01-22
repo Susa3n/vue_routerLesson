@@ -8,7 +8,13 @@ export default {
   data () {
     return {}
   },
-  components: { }
+  props: {
+    data: {
+      type: Array,
+      default: () => []
+    }
+  },
+  components: {  }
 }
 </script>
 <style  scoped>
