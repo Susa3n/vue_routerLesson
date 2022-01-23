@@ -1,69 +1,31 @@
 <template>
-  <div id="app">
-    <!-- <Menu>
-        <SubMenu>
-          <template slot="title">导航一</template>
-          <MenuItem>导航1-1</MenuItem>
-          <MenuItem>导航1-2</MenuItem>
-        </SubMenu>
-        <MenuItem>导航二</MenuItem>
-        <MenuItem>导航三</MenuItem>
-        <MenuItem>导航四</MenuItem>
-      </Menu> -->
-    <WMenu :data="menuData"></WMenu>
+  <div class='app'>
+    <button @click="showMessage">点击</button>
   </div>
 </template>
 <script>
-// import Menu from "@/views/components/Menu";
-// import SubMenu from "@/views/components/SubMenu";
-// import MenuItem from "@/views/components/MenuItem";
-import WMenu from "./WMenu.vue";
+import  Message  from '@/message.js'
+import vue from 'vue'
+vue.use(Message)
 export default {
-  name: "App",
-  data() {
-    return {
-      menuData: [
-        {
-          id: 1,
-          name: "导航一",
-          children: [
-            {
-              id: 1.1,
-              name: "导航1-1",
-            },
-            {
-              id: 1.2,
-              name: "导航1-2",
-              children: [
-                {
-                  id: "1.2.1",
-                  name: "导航1-2-1",
-                },
-                {
-                  id: "1.2.2",
-                  name: "导航1-2-2",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 2,
-          name: "导航二",
-        },
-        {
-          id: 3,
-          name: "导航三",
-        },
-      ],
-    };
+  name: 'App',
+  data () {
+    return {}
   },
-  components: {
-    // MenuItem,
-    // SubMenu,
-    // Menu,
-    WMenu,
-  },
-  methods: {},
-};
+  components: { },
+  methods: {
+    showMessage() {
+      // Message.success({
+      //   duration: 2000,
+      //   message: '弹出框'
+      // })
+      this.$message.success({
+        duration: 2000,
+        message: 'ceshi'
+      })
+    }
+  }
+}
 </script>
+<style scoped>
+</style>
