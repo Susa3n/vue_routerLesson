@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    APP
     <Level :t="1">你好</Level>
     <Level :t="2">你好</Level>
     <Level :t="3">你好</Level>
     <Level :t="4">你好</Level>
     <Level :t="5">你好</Level>
     <Level :t="6">你好</Level>
-
 
     <List :data="['香蕉','苹果','橘子']" :render="render"></List>
 

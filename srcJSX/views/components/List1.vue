@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: "List",
+  name: "List1",
   data() {
     return {};
   },
