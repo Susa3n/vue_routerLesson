@@ -1,69 +1,90 @@
 <template>
-  <div id="app">
-    <!-- <Menu>
-        <SubMenu>
-          <template slot="title">导航一</template>
-          <MenuItem>导航1-1</MenuItem>
-          <MenuItem>导航1-2</MenuItem>
-        </SubMenu>
-        <MenuItem>导航二</MenuItem>
-        <MenuItem>导航三</MenuItem>
-        <MenuItem>导航四</MenuItem>
-      </Menu> -->
-    <WMenu :data="menuData"></WMenu>
+  <div class="app"> 
+    <Cascader :options="options"></Cascader>
   </div>
 </template>
 <script>
-// import Menu from "@/views/components/Menu";
-// import SubMenu from "@/views/components/SubMenu";
-// import MenuItem from "@/views/components/MenuItem";
-import WMenu from "./WMenu.vue";
+import Cascader from '@/components/Cascader'
 export default {
   name: "App",
   data() {
     return {
-      menuData: [
+      options: [
         {
-          id: 1,
-          name: "导航一",
+          label: "肉类",
           children: [
             {
-              id: 1.1,
-              name: "导航1-1",
-            },
-            {
-              id: 1.2,
-              name: "导航1-2",
+              label: "猪肉",
               children: [
                 {
-                  id: "1.2.1",
-                  name: "导航1-2-1",
+                  label: "五花肉",
                 },
                 {
-                  id: "1.2.2",
-                  name: "导航1-2-2",
+                  label: "里脊肉",
+                },
+              ],
+            },
+            {
+              label: "鸡肉",
+              children: [
+                {
+                  label: "鸡腿",
+                },
+                {
+                  label: "鸡翅",
                 },
               ],
             },
           ],
         },
         {
-          id: 2,
-          name: "导航二",
-        },
-        {
-          id: 3,
-          name: "导航三",
+          label: "蔬菜",
+          children: [
+            {
+              label: "叶菜类",
+              children: [
+                {
+                  label: "大白菜",
+                },
+                {
+                  label: "小白菜",
+                },
+              ],
+            },
+            {
+              label: "根茎类",
+              children: [
+                {
+                  label: "萝卜",
+                },
+                {
+                  label: "土豆",
+                },
+              ],
+            },
+          ],
         },
       ],
     };
   },
   components: {
-    // MenuItem,
-    // SubMenu,
-    // Menu,
-    WMenu,
+    Cascader
   },
-  methods: {},
 };
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
