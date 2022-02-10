@@ -58,8 +58,10 @@ export default new Vuex.Store({
     async getNewRoute({ commit }) {
       let { menuList } = await request.get('/roleAuth')
       let { menu, auths } = getTreeList(menuList)
+      console.log(menu);
       commit('saveMenu', menu)
       let needRoutes = formatMenuList(authRoutes,auths)
+      console.log(needRoutes,menu);
       commit('saveMenu', menu)
       commit('setPermission')
       return needRoutes

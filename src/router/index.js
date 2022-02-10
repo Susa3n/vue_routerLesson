@@ -28,6 +28,8 @@ export const authRoutes = [ // 权限路由
     ],
   },
 ];
+
+
 export default new Router({ // 默认导出 首页和404页面
   mode: 'history',
   base: process.env.BASE_URL,
