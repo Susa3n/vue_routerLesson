@@ -1,43 +1,47 @@
 import Vue from 'vue'
-// import VueRouter from 'vue-router'
-import VueRouter from '@/vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
+import Router from 'vue-router'
 
-Vue.use(VueRouter)
-
-const routes = [
+Vue.use(Router)
+export const authRoutes = [ // 权限路由
   {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About,
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/views/Cart'),
     children: [
       {
-        path: 'a',
-        component: () => import('@/views/components/A.vue')
-      },
-      {
-        path: 'b',
-        component: () => import('@/views/components/B.vue'),
+        path: 'cart-list',
+        name: 'cart-list',
+        component: () => import('@/views/CartList'),
         children: [
           {
-            path: '/c',
-            component: () => import('@/views/components/C.vue')
-          }
-        ]
+            path: 'lottery',
+            name: 'lottery',
+            component: () => import('@/views/Lottery'),
+          },
+          {
+            path: 'product',
+            name: 'product',
+            component: () => import('@/views/Product'),
+          },
+        ],
+      },
+    ],
+  },
+];
+export default new Router({ // 默认导出 首页和404页面
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: () => import(`@/views/Home.vue`)
+    },
+    {
+      path:'*',
+      component:{
+        render:h=>h('h1',{},'Not Found')
       }
-    ]
-  }
-]
-
-const router = new VueRouter({
-  mode: 'hash',
-  routes
+    }
+  ]
 })
-
-export default router
