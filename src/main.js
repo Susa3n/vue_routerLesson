@@ -14,7 +14,7 @@ router.beforeEach(async (to,from,next)=>{
   if(!store.state.hasPermission) { // 如果没有权限
     // 获取权限 
     const newRouter = await store.dispatch('getNewRoute')
-    console.log(newRouter);
+    console.log(newRouter); // 真实的路由列表
     router.addRoutes(newRouter)
     next({...to,replace: true})
   }else { // 有权限去放行

@@ -9,7 +9,15 @@ const request = axios.create({
 request.interceptors.response.use(result => {
   return result.data
 })
+/**
+*@menuList 扁平化的后台路由表
+*@menu 树状结构路由表
+*@auths 权限关键字数组
+*@authRoutes 静态路由表
+*@needRoutes 根据权限关键字过滤出的真实路由表
+*/
 
+// 将扁平化的路由表改为树结构
 function getTreeList(menuList) {
   let menu = []
   let auths = []
@@ -26,18 +34,22 @@ function getTreeList(menuList) {
       }
     }
   })
+  // 返回 权限数组的关键字，以便过滤静态路由。 树状的路由菜单
   return { auths, menu }
 }
 
+
+// 过滤路由根据权限关键字数组
 function formatMenuList(authRoutes,auths) {
   return authRoutes.filter(route => {
+    // 如果当前route的route的name属于路由权限关键字 返回true
     if(auths.includes(route.name)){
+      // 如果当前route有children 进行递归 查看下一层是否有权限 返回给当前route的children属性
       route.children = route.children && formatMenuList(route.children,auths)
       return true
     }
   })
 }
-
 
 
 
@@ -58,11 +70,9 @@ export default new Vuex.Store({
     async getNewRoute({ commit }) {
       let { menuList } = await request.get('/roleAuth')
       let { menu, auths } = getTreeList(menuList)
-      console.log(menu);
       commit('saveMenu', menu)
       let needRoutes = formatMenuList(authRoutes,auths)
       console.log(needRoutes,menu);
-      commit('saveMenu', menu)
       commit('setPermission')
       return needRoutes
     }
