@@ -21,7 +21,7 @@ export default new Vuex.Store({
         return false
       }
       console.log(r);
-      commit('setUserName',r.username)
+      commit('setUserName',r.userName)
       localStorage.setItem('token',r.token)
       return true
     },

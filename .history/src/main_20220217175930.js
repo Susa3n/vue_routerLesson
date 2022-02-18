@@ -10,23 +10,29 @@ Vue.config.productionTip = false
 Vue.prototype.$bus = new Vue()
 
 // 路由的渲染流程 钩子的执行顺序  
-let whiteRoutes = ['/login','/']
+let whiteRoutes = ['/login']
 router.beforeEach((to, from, next) => {
-  store.dispatch('validate').then(flag => {
-    if(flag) { // 获取token成功
-        if(to.name == 'login') {
-          next('/')
+  if (whiteRoutes.includes(to.path)) {
+    next()
+  } else {
+    store.dispatch('validate').then(result => {
+      console.log(to,result);
+      if(!result) {
+        next({
+          path: '/login'
+        })
+      }else {
+        if(to.name === 'login') {
+          next({
+            path: '/'
+          })
         }else {
           next()
         }
-    }else {
-      if(whiteRoutes.includes(to.path)) { // 
-        next()
-      }else {
-        next('/login')
       }
-    }
-  })
+    })
+  }
+
 })
 new Vue({
   name: 'main',

@@ -15,15 +15,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async validate({commit}) {
-      const r = await validate()
-      if(r.code === 1) {
-        return false
-      }
-      console.log(r);
-      commit('setUserName',r.username)
-      localStorage.setItem('token',r.token)
-      return true
+    async validate({commit},username) {
+
     },
 
 
