@@ -11,8 +11,8 @@
     <hr>
     <C v-bind="$attrs" v-on="$listeners" :age="$attrs.age"></C>
     <!-- <router-link :to="{path: '/c'}">ccccccccccccc</router-link> -->
-    <!-- <hr>
-    <router-view></router-view> -->
+    <!-- <hr>-->
+    <router-view></router-view> 
   </div>
 </template>
 <script>

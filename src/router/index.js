@@ -1,6 +1,6 @@
 import Vue from 'vue'
-// import VueRouter from 'vue-router'
-import VueRouter from '@/vue-router'
+import VueRouter from 'vue-router'
+// import VueRouter from '@/vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 
@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: About,
+    component: () => import('@/views/About.vue'),
     children: [
       {
         path: 'a',
@@ -26,7 +26,7 @@ const routes = [
         component: () => import('@/views/components/B.vue'),
         children: [
           {
-            path: '/c',
+            path: 'c',
             component: () => import('@/views/components/C.vue')
           }
         ]

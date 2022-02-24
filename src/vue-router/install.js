@@ -27,7 +27,7 @@ export default function install(Vue) {
   })
 
 
-  Object.defineProperty(Vue.prototype,'$router',{ // $route 都是属性 matched path current
+  Object.defineProperty(Vue.prototype,'$router',{ // $router 
     get() {
       return this._routerRoot._router
     }

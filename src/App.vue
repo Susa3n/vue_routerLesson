@@ -4,10 +4,21 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> 
-    <router-view/>
+    <router-view />
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      a:'11111111'
+    }
+  },
+  methods: {
+    test() {}
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
