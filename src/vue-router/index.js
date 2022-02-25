@@ -26,15 +26,17 @@ export default class VueRouter {
   // 默认已运行的时候
   init(app) { // app 为vue的实例 vm  初始化 根据当前的路径 显示对应路由
     const history = this.history // 生成HashHistory的实例  可以访问导history类及hash类的方法
+
+     // 发布订阅模式  给history 绑定一个监听的函数 传入callback 
+     history.listen((route) => {
+      app._route = route
+    })
+
     const setupHashLister = () => {
       history.setupListener()
     } 
     // history.getCurrentLocation() 获取当前hash模式下的指定路径，history.transitionTo()过渡导当前组件
     history.transitionTo(history.getCurrentLocation(),setupHashLister)  // 后续需要监听路径的变化
-    // 发布订阅模式  给history 绑定一个监听的函数 传入callback 
-    history.listen((route) => {
-      app._route = route
-    })
   }
 
   // 用来匹配路由的方法

@@ -6,7 +6,6 @@ export function createRoute(record, location) {
       record = record.parentRoute
     }
   }
-  console.log(res);
   return {
     ...location,
     matched: res
@@ -29,7 +28,6 @@ export default class History {
    transitionTo(location,onComplete) {
     let route = this.router.match(location) // 用当前路径去匹配record 
     // route 就是当前路径要匹配的所有路由matched,路径信息path
-    console.log(route);
 
 
     // 需要新匹配到的路由信息 覆盖掉当前实例的current

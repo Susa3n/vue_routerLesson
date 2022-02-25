@@ -1,13 +1,15 @@
 <template>
   <div class="about">
-      <A></A>
-       <button @click="changeLikes">操作likes数据</button>
+      <!-- <A></A> -->
+       <!-- <button @click="changeLikes">操作likes数据</button>
       <hr>
       <input type="text" v-model="message">
       <button @click="changeBMsg">改变B组件的方法</button>
       <B :name="name" :age="age" :sex="sex" :likes="likes" :job="job" @test="test" :test="test" ref="b"></B>
-      <button @click="viewB">refs查看B组件</button>
+      <button @click="viewB">refs查看B组件</button> -->
       <!-- <h2>{{$refs.b.msg}}</h2> -->
+      <h1>about</h1>
+      <router-view></router-view>
   </div>
 </template>
 <script>
@@ -40,7 +42,7 @@ export default {
     A,B
   },
   mounted() {
-    console.log(this.$refs.b.msg);
+    // console.log(this.$refs.b.msg);
   },
   methods: {
     test() {},

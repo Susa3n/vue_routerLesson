@@ -1,6 +1,5 @@
 import History from './history'
 function getHashPath() { // hash模式下 获取当前路径 然后截取#号
-  console.log(window.location.hash); // 第一次获取 #/
   return window.location.hash.slice(1)
 }
 

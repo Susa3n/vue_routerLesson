@@ -8,7 +8,7 @@ export default function createMatcher(routes) {
   // [/,/about,/about/a,/about/b] 存放路径
   // {/:记录,/about:记录,/about/a:记录,/about/b:记录 }  存放路由映射表
   let {pathList,pathMap} = createRouteMap(routes) // 初始化配置
-
+  console.log(pathMap);
   // 动态添加路由 
   
   /**
@@ -23,9 +23,7 @@ export default function createMatcher(routes) {
 
   // 用来匹配的方法，根据路径找到对应的记录
   function match(location) {
-    console.log(pathMap);
     let record = pathMap[location]  // 找到了记录
-    console.log(record);
     let local = {
       path: location
     }
