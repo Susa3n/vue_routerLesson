@@ -8,7 +8,8 @@
       <B :name="name" :age="age" :sex="sex" :likes="likes" :job="job" @test="test" :test="test" ref="b"></B>
       <button @click="viewB">refs查看B组件</button> -->
       <!-- <h2>{{$refs.b.msg}}</h2> -->
-      <h1>about</h1>
+      <h1>about11111111</h1>
+      <hr>
       <router-view></router-view>
   </div>
 </template>

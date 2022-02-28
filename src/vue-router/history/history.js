@@ -1,4 +1,5 @@
 export function createRoute(record, location) {
+  console.log(record);
   let res = [];
   if(record) { // 如果匹配到路由 将匹配到的路由记录unshift 到matched中 递归找上一层,直至record为undefined 
     while(record) { 
@@ -6,6 +7,7 @@ export function createRoute(record, location) {
       record = record.parentRoute
     }
   }
+  console.log(res);
   return {
     ...location,
     matched: res

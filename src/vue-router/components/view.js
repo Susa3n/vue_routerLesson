@@ -9,8 +9,6 @@ export default  {
   render(h,{parent,data}) {
     let route = parent.$route
     let matched = route.matched
-    console.log(parent);
-    debugger
     data.routeView = true //  当前是组件属性routeView 为 true 以便下一层做展示
     let depth = 0
     while(parent) {

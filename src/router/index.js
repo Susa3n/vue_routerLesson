@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('@/views/About.vue'),
+    component: About,
     children: [
       {
         path: 'a',
@@ -26,7 +26,7 @@ const routes = [
         component: () => import('@/views/components/B.vue'),
         children: [
           {
-            path: '/c',
+            path: 'c',
             component: () => import('@/views/components/C.vue')
           }
         ]
